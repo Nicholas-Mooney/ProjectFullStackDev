@@ -4,16 +4,42 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+    <title>WDFSP</title>
+    <meta name="description" content="WebDev - Full Stack Project">
+    <meta name="author" content="Nicholas Mooney">
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<p>hello world</p>
-<script src="js/scripts.js"></script>
+    <form action="action_page.php" method="post">
+
+    <div class="imgcontainer">
+        <img src="https://www.203challenges.com/wp-content/uploads/2017/12/DSC_8527.jpg"
+             alt="Avatar"
+             class="avatar">
+    </div>
+
+    <div class="container">
+
+        <label for="uname"><b>Username</b></label>
+        <input type="text"
+               placeholder="Enter Username"
+               name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password"
+               placeholder="Enter Password"
+               name="psw" required>
+
+        <button type="submit">Login</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+
+</form>
 </body>
 </html>
