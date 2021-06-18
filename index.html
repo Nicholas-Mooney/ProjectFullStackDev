@@ -14,32 +14,29 @@
 <body>
     <form action="action_page.php" method="post">
 
-    <div class="imgcontainer">
+        <div class="imgcontainer">
         <img src="https://www.203challenges.com/wp-content/uploads/2017/12/DSC_8527.jpg"
              alt="Avatar"
              class="avatar">
     </div>
 
-    <div class="container">
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text"
+                   placeholder="Enter Username"
+                   name="uname" required>
 
-        <label for="uname"><b>Username</b></label>
-        <input type="text"
-               placeholder="Enter Username"
-               name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password"
+                   placeholder="Enter Password"
+                   name="psw" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password"
-               placeholder="Enter Password"
-               name="psw" required>
-
-        <button type="submit">Login</button>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
+            <button type="submit">Login</button>
+            </div>
+        <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn">Cancel</button>
         <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
-
-</form>
+    </form>
 </body>
 </html>
