@@ -1,12 +1,10 @@
-# ProjectFullStackDev
+# hellonode
 
-There is nothing in this project yet just a blank github to put my code in 
+## A Fly Example
 
-Goals for project
+This is a simple application used in the [fly.io Getting Started](https://fly.io/docs/getting-started/node/)  documentation showing how to deploy a Node application using Flyctl's builtin Nodejs deployment option.
 
-week 1 Goals                                                    started  worked?  latest bugcheck?
-1. create a website with text box and pretty gridbox layout     |   N   |   -    |    -     |
-2. create a home page with a page for login and create account  |   N   |   -    |    -     |
-3. make a database to store create account info                 |   N   |   -    |    -     |
-4. make a login page reference the database                     |   N   |   -    |    -     |
+* Run flyctl init
+* When prompted for a builder, select builtin Nodejs.
+* Run flyctl deploy
 
