@@ -1,6 +1,6 @@
-# fly.toml file generated for purple-star-1960 on 2021-06-20T19:48:49-07:00
+# fly.toml file generated for spring-grass-4083 on 2021-07-22T15:29:45-07:00
 
-app = "purple-star-1960"
+app = "spring-grass-4083"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
