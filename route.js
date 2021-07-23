@@ -24,10 +24,10 @@ module.exports = {
         let path = url.parse(request.url).pathname;
 
         switch (path) {
-            case '/nick1':
+            case '/nick':
                 html.render('./index.html', response);
                 break;
-            case '/signUp':
+            case '/signup':
                 html.render('./signUp.html', response);
                 break;
             default:
