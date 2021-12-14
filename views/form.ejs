@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WEATHER PROJ</title>
+    <style>
+        .navList {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #555;
+        }
+        .navblock {
+            float: left;
+        }
+        .navlink {
+            display: block;
+            color: lightcyan;
+            text-align: center;
+            padding: 10px 30px;
+        }
+        .navlink:hover {
+            background-color: #777;
+        }
+
+        body {
+            background: #dbdbdb;
+            height: 400px;
+            font-size: 20px;
+        }
+        p {
+            font-family: Arial;
+        }
+        ul {
+            list-style-type: circle;
+        }
+        h1{
+            display: inline;
+            padding-right: 30px;
+        }
+        h3{
+            display: inline;
+        }
+
+        input {
+            margin: 10px;
+        }
+        button {
+            display:inline-block;
+            padding:0.7em 1.4em;
+            margin:0 0.3em 0.3em 0;
+            border-radius:0.15em;
+            box-sizing: border-box;
+            text-decoration:none;
+            font-family:'Roboto',sans-serif;
+            text-transform:uppercase;
+            font-weight:400;
+            color:#FFFFFF;
+            background-color:#3369ff;
+            box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+            text-align:center;
+            position:relative;
+            margin-top: 10px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2;}
+        tr:nth-child(odd){background-color: #e4e4e4;}
+        th{background-color: #d5d5d5;}
+        }table, th, td {
+             border: 1px solid black;
+         }
+
+    </style>
+</head>
+
+<body>
+    <div class="section1">
+              <header>
+                  <ul class="navList">
+                      <li class="navblock"><a href="/login" class="navlink">Login</a></li>
+                      <li class="navblock"><a href="/signUp" class="navlink">SignUp</a></li>
+                      <li class="navblock"><a href="/home/<%= user%>" class="navlink">Home</a></li>
+                      <li class="navblock"><a href="/setPreferences/<%= user%>" class="navlink">Set Preferences</a></li>
+                      <li class="navblock"><a href="/addLocation/<%= user%>" class="navlink">Add Location</a></li>
+                      <li class="navblock"><a href="/home/views/<%= user%>" class="navlink">View Locations</a></li>
+                      <li class="navblock"><a href="/setNotices/<%= user%>" class="navlink">Notification Settings</a></li>
+
+                  </ul>
+              </header>
+          </div>
+                     <br>
+    <h1>HOME</h1>
+    Logged in as: <%= user%>
+    <br>
+    <br>
+    <br><h3>Weather Preferences</h3><br>these preferences will be used to
+    determine whether your trip is viable or not due to being
+     <br>too cold (below <%= weather1%>),
+     <br>too hot (above <%= weather2%>),
+     <br>too rainy (above <%= weather3%>% precip.),
+      <br> or too windy (above <%= weather4%> mph)
+    <br>
+        <button onclick="
+            window.location.href= '/setPreferences/' + '<%= user%>' + '/';
+        ">Set Weather Preferences
+        </button>
+    <br>
+    <br>
+    <br><h3>Notification Settings</h3><br>These are Settings for notifications that will decide
+     where to send the reports and how often to send them
+
+     <br>currently being sent to: (<%= notifications2%>),
+     <br>at a rate of: (<%= notifications1%>),
+    <br>
+        <button onclick="
+            window.location.href= '/setNotices/' + '<%= user%>' + '/';
+        ">Set Notification Settings
+        </button>
+    <br>
+    <br>
+    <br><h3>Add Location To Monitor</h3><br>These locations will need
+   <br> a name and coordinates
+     <br>but will be monitored and determined viable or unviable
+    <br>  dependening on the current weather and specified preferences
+
+    <br>
+        <button onclick="
+        window.location.href= '/addLocation/'
+        + '<%= user%>' + '/';
+        ">Add Location
+        </button>
+    <br>
+    <br><h3>View Locations</h3><br>look at your locations and current weather with viabilities
+   <br>
+      <button onclick="
+           window.location.href= '/home/'
+           + 'views/<%= user%>' + '/';
+           ">View Locations
+    </button>
+    <br>
+    <br><h3>Get Recomendations</h3><br>get a notification for all locations on your list within your weather preferences
+    <br>
+                      <%
+                      var numGood = 0;
+                      let good = []
+                      if(rows.length!=0){
+                        var i=1;
+                        rows.forEach(function(data){
+                            console.log(weather4);
+                            console.log(data.wind);
+                            console.log( (parseInt(String(data.wind))) >(parseInt(String(weather4))));
+                            if(
+                            (data.temperature > weather1)
+                             && (data.temperature < weather2)
+                              && parseInt(String(data.wind)) < parseInt(String(weather4))
+                              && parseInt(String(data.precip)) < parseInt(String(weather3))
+                                          ){
+                                              numGood++;
+                                              console.log(numGood);
+                                              good[good.length] = data.name
+                                              console.log(good);
+                                        }else{
+
+                                        }
+                         i++;
+                         })
+                      }
+                       %>
+    <button onclick="
+        if( '<%= good.length%>' > 0 ){
+        alert('for your preferences ' + '\n' + '<%= good%>' +  '\n' + 'has good weather');
+        }else{
+           alert('no good weather ');
+        }
+        "
+    >View viable trips
+
+    </button>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!-- This is the Chapter 3 Demo page
+    More HTML for CPSC 314
+    fake submission results -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SubmissionPage</title>
+    <link rel="icon" href="favicon.png">
+
+    <style>
+        table,
+        th {
+            border: 1px solid black;
+
+        }
+
+        td {
+            border: 1px dotted black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Feedback Submission Success!</h1>
+    <table>
+        <caption>Your Feedback has been added to the database! Here are all submissions:</caption>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Saw What I did</th>
+            <th>Rating</th>
+            <th>It was Funny</th>
+        </tr>
+
+        <tr>
+            <td id="fname">
+            </td>
+            <td id="lname">
+            </td>
+            <td id="check1">
+            </td>
+            <td id="rating">
+            </td>
+            <td id="agree">
+            </td>
+            <td>
+                <!-- Added for our UPDATE and DELETE parts of CRUD -->
+                <a href="/edit/">Edit</a>
+                <a href="/delete/>">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <button><a href="/">Back</a></button>
+</body>
+
+</html>
